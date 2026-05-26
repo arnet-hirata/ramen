@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('food_name');
             $table->integer('price');
-            $table->integer('category_id');
+            $table->integer('category_id')
+            ->nullable()
+            ->constrained('categories');
             $table->string('image');
             $table->integer('store_id');
             $table->timestamps();
