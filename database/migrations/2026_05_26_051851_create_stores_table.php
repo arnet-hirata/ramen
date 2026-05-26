@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('store_name');
             $table->string('store_place');
-            $table->string('place_id');
+            $table->foreignId('places_id') 
+                    ->nullable() 
+                    ->constrained('places');
             $table->timestamps();
         });
     }
