@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('evaluates', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')
+            ->nullable()//外部キーにnullを設定
+            ->constrained('users');
+            $table->foreignId('store_id')
+            ->nullable()//外部キーにnullを設定
+            ->constrained('stores'); //関連するテーブルを指定
+            $table->double('review');
+            $table->text('comment');
             $table->timestamps();
         });
     }
