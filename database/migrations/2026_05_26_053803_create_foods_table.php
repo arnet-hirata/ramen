@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('foods', function (Blueprint $table) {
             $table->id();
             $table->string('food_name');
-            $table->int('price');
-            $table->int('category_id');
+            $table->integer('price');
+            $table->integer('category_id');
             $table->string('image');
             $table->timestamp('created_at');
             $table->timestamp('updated_at');
-            $table->int('store_id');
+            $table->integer('store_id');
         });
     }
 
