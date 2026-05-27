@@ -24,7 +24,10 @@ class DatabaseSeeder extends Seeder
             CategoriesTableSeeder::class,
             FoodsTableSeeder::class,
             EvaluateTableSeeder::class,
+            PlacesTableSeeder::class,
+            StoresTableSeeder::class,
             UsersTableSeeder::class,
+            StoreUserTableSeeder::class,
         ]);
     }
 }
