@@ -24,10 +24,10 @@ class DatabaseSeeder extends Seeder
             CategoriesTableSeeder::class,
         ]);
         $this->call([
-            StoresTableSeeder::class,
+            FoodsTableSeeder::class,
         ]);
         $this->call([
-            PlacesTableSeeder::class,
+            EvaluateTableSeeder::class,
         ]);
         User::factory()->create([
             'name' => 'Test User',
