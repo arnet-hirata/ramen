@@ -26,6 +26,5 @@ class DatabaseSeeder extends Seeder
             EvaluateTableSeeder::class,
             UsersTableSeeder::class,
         ]);
-        
     }
 }
