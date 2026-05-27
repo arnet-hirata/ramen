@@ -22,16 +22,10 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             CategoriesTableSeeder::class,
-        ]);
-        $this->call([
             FoodsTableSeeder::class,
-        ]);
-        $this->call([
             EvaluateTableSeeder::class,
+            UsersTableSeeder::class,
         ]);
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        
     }
 }
