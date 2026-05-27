@@ -3,12 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Stores;
-use App\Models\Users;
-use App\Models\StoreUser;
 use Illuminate\Support\Facades\DB;
 
-class RankingController extends Controller
+class StoreUserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,26 +13,6 @@ class RankingController extends Controller
     public function index()
     {
         //
-        // $counts = DB::table('store_user')
-        //     ->select('store_id', DB::raw('avg(review) as eval'))
-        //     ->groupBy('store_id')
-        //     ->orderBy('eval','desc')
-        //     ->limit(20)
-        //     ->get();
-
-        $stores=Stores::select('id','store_name')
-            ->withAvg(
-            'user as avg_score','store_user.review'
-            )
-            ->orderBy('avg_score','desc')
-            ->limit(20)
-            ->get();
-
-        return $stores;
-
-        
-        // dd($counts);
-        // return view('ranking.index', compact('ranking'));
     }
 
     /**
@@ -84,5 +61,17 @@ class RankingController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public static function query()
+    {
+        //
+        $counts = DB::table('store_user')
+            ->select('store_id', DB::raw('avg(review) as eval'))
+            ->groupBy('store_id')
+            ->limit(20)
+            ->get();
+
+        dd($counts);
     }
 }
