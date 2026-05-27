@@ -19,7 +19,9 @@ return new class extends Migration
             ->nullable()
             ->constrained('categories');
             $table->string('image');
-            $table->integer('store_id');
+            $table->integer('store_id')
+            ->nullable()
+            ->constrained('stores');
             $table->timestamps();
         });
     }
