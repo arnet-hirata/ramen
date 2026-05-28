@@ -11,7 +11,8 @@ class PlacesController extends Controller
      */
     public function index()
     {
-        //
+        $all_places = places::all();
+        return view('place.index', compact('all_places'));
     }
 
     /**
