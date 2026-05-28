@@ -21,7 +21,7 @@
                     <x-nav-link :href="route('category.index')" :active="request()->routeIs('category.index')">
                         カテゴリー
                     </x-nav-link>
-                    <x-nav-link :href="route('area.index')" :active="request()->routeIs('area.index')">
+                    <x-nav-link :href="route('place.index')" :active="request()->routeIs('place.index')">
                         地域
                     </x-nav-link>
                 </div>

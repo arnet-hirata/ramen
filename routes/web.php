@@ -39,6 +39,6 @@ Route::get('/place', function(){
             }
         print('</div><br>');
         }
-});
+})->name('place.index');
 
 require __DIR__.'/auth.php';
