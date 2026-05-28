@@ -36,8 +36,8 @@ class PlacesController extends Controller
      */
     public function show(string $id)
     {
-        $place = Places::findOrFail($id);
-    return view('place.show', compact('place'));
+        $place = Places::find($id);
+        return view('place.show', compact('place'));
     }
 
     /**
