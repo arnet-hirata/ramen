@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('places_id') 
                     ->nullable() 
                     ->constrained('places');
+            $table->string('store_image');
             $table->timestamps();
         });
     }

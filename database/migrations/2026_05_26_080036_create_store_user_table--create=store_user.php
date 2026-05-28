@@ -22,7 +22,6 @@ return new class extends Migration
             ->constrained('stores'); //関連するテーブルを指定
             $table->double('review');
             $table->text('comment');
-            $table->string('store_image');
             $table->timestamps();
         });
     }
