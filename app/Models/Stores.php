@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Stores extends Model
 {
-    public function Places(){
+    public function places(){
         //カテゴリー一つに対してラーメンは複数存在する
         return $this->belongsTo(Places::class);
     }
