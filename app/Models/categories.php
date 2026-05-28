@@ -9,6 +9,6 @@ class Categories extends Model
     //
     public function foods(){
         //カテゴリー一つに対してラーメンは複数存在する
-        return $this->hasMany(Foods::class);
+        return $this->hasMany(foods::class);
     }
 }

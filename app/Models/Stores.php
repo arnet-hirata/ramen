@@ -18,4 +18,9 @@ class Stores extends Model
         // $this->belongsToMany(<連携先クラス名>::class)
         return $this->belongsToMany(User::class,'store_user','user_id','store_id')->withPivot('review');
     }
+
+    public function foods(){
+        //店一つに対してラーメンは複数存在する(ストアとフード)
+        return $this->hasMany(foods::class, 'store_id');
+    }
 }

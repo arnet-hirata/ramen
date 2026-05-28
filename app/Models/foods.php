@@ -9,7 +9,10 @@ class Foods extends Model
     //
         public function categories(){
         //ラーメン一つに対してカテゴリーは一つ
-        return $this->belongsTo(Categories::class);
+        return $this->belongsTo(categories::class);
     }
-
+        public function stores(){
+        //ラーメン一つに対して店ーは一つ
+        return $this->belongsTo(Stores::class);
+    }
 }
