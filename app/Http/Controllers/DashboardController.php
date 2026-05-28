@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\foods; 
-
-
+use App\Models\categories; 
+use App\Models\Stores; 
+use App\Models\StoreUser;
 
 class DashboardController extends Controller
 {
@@ -16,10 +17,18 @@ class DashboardController extends Controller
     {
         //店舗情報一覧に必要な項目、店名、画像、評価の数、大まか市区町村、カテゴリー
         // 
-        $foods = foods::all();//フードテーブルから画像、カテゴリーID(カテゴリー名）、ストアID（店名）取得
+        $stores = Stores::all();//フードテーブルから画像、カテゴリーID(カテゴリー名）、ストアID（店名）取得
+
+        return view('dashboard', compact('stores'));
 
 
-        return view('dashboard', compact('foods'));
+                $str=Stores::select('id','store_name','store_place')
+            ->withAvg(
+            'user as avg_score','store_user.review'
+            )
+            ->get();
+        return view('dashboard', compact('str'));
+
 
     }
 
