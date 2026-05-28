@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Places;
 use Illuminate\Http\Request;
-
+use App\Models\Stores;
 
 class PlacesController extends Controller
 {
@@ -37,8 +37,8 @@ class PlacesController extends Controller
      */
     public function show(string $id)
     {
-        $place = Places::find($id);
-        return view('place.show', compact('place'));
+        $store = Stores::find($id);
+        return view('place.show', compact('store'));
     }
 
     /**
