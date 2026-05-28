@@ -19,6 +19,8 @@ class Stores extends Model
         return $this->belongsToMany(User::class,'store_user','store_id','user_id')->withPivot('review','comment');
     }
 
-    
-    
+    public function foods(){
+        //店一つに対してラーメンは複数存在する(ストアとフード)
+        return $this->hasMany(foods::class, 'store_id');
+    }
 }

@@ -4,9 +4,9 @@
         <div>店名：
             @foreach($place->stores as $store) 
                 {{"{$store->store_name} / "}}
-            <br>
+                <br>
+                <div><a href="/place/{{ $place->id}}" class="btn btn-primary">詳細</a></div>
             @endforeach
-        {{-- print('</div><br>'); --}}
         <br>
         @endforeach
 </x-app-layout>

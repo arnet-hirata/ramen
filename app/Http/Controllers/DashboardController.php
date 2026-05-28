@@ -1,19 +1,35 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Places;
+
 use Illuminate\Http\Request;
+use App\Models\foods; 
+use App\Models\categories; 
+use App\Models\Stores; 
+use App\Models\StoreUser;
 
-
-class PlacesController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $all_places = places::all();
-        return view('place.index', compact('all_places'));
+        //店舗情報一覧に必要な項目、店名、画像、評価の数、大まか市区町村、カテゴリー
+        // 
+        $stores = Stores::all();//フードテーブルから画像、カテゴリーID(カテゴリー名）、ストアID（店名）取得
+
+        return view('dashboard', compact('stores'));
+
+
+                $str=Stores::select('id','store_name','store_place')
+            ->withAvg(
+            'user as avg_score','store_user.review'
+            )
+            ->get();
+        return view('dashboard', compact('str'));
+
+
     }
 
     /**
@@ -37,8 +53,7 @@ class PlacesController extends Controller
      */
     public function show(string $id)
     {
-        $place = Places::find($id);
-        return view('place.show', compact('place'));
+        //
     }
 
     /**
