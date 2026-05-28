@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 use App\Models\Myposts;
 use Illuminate\Http\Request;
+use App\Models\StoreUser;
+use App\Models\User;
+
+// データベースへのレコード追加のために、DBファサードを利用する
+use Illuminate\Support\Facades\Auth;
 
 class MyPostsController extends Controller
 {
@@ -11,16 +16,9 @@ class MyPostsController extends Controller
      */
     public function index()
     {
-        //
-        $users=Users::select('id','store_name','store_place','store_image')
-            ->withAvg(
-            'user as avg_score','store_user.review'
-            )
-            ->orderBy('avg_score','desc')
-            ->limit(20)
-            ->get();
-        return view('ranking.index', compact('stores'));
-
+        
+        $auths=User::where('id',Auth::id())->get();
+        return view('myposts.index', compact('auths'));
     }
 
     /**

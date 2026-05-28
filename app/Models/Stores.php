@@ -16,7 +16,7 @@ class Stores extends Model
 
         // 中間テーブル(player_positionテーブル)が持っているレコードで関連付けする
         // $this->belongsToMany(<連携先クラス名>::class)
-        return $this->belongsToMany(User::class,'store_user','user_id','store_id')->withPivot('review');
+        return $this->belongsToMany(User::class,'store_user','store_id','user_id')->withPivot('review','comment');
     }
 
     

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RankingController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PlacesController;
+use App\Http\Controllers\MyPostsController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -19,7 +20,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/ranking', RankingController::class);
     Route::resource('category', CategoryController::class);
     Route::resource('place', PlacesController::class);
-    Route::get('/mypost', [MyPostsController::class, 'edit'])->name('myposts.edit');
+    Route::get('/mypost', [MyPostsController::class, 'index'])->name('myposts.index');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

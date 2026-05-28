@@ -13,6 +13,13 @@ class User extends Authenticatable
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
 
+    public function stores()
+    {
+
+        // 中間テーブル(player_positionテーブル)が持っているレコードで関連付けする
+        // $this->belongsToMany(<連携先クラス名>::class)
+        return $this->belongsToMany(Stores::class,'store_user','user_id','store_id')->withPivot('review','comment');
+    }
     /**
      * The attributes that are mass assignable.
      *
