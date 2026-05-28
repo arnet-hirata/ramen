@@ -17,7 +17,7 @@ class RankingController extends Controller
     {
 
 
-        $stores=Stores::select('id','store_name','store_place')
+        $stores=Stores::select('id','store_name','store_place','store_image')
             ->withAvg(
             'user as avg_score','store_user.review'
             )

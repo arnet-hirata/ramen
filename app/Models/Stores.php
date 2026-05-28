@@ -18,4 +18,7 @@ class Stores extends Model
         // $this->belongsToMany(<連携先クラス名>::class)
         return $this->belongsToMany(User::class,'store_user','user_id','store_id')->withPivot('review');
     }
+
+    
+    
 }

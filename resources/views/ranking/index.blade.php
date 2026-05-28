@@ -15,8 +15,7 @@
                                 お店:{{ $store->store_name }}<br>
                             </div>
                             <div class="p-6 text-gray-900">
-                                写真:
-                                {{ $store->store_name }}<br>
+                                <img src="{{asset('storage/images/'.$store->store_image) }}"width='500'/>
                             </div>
                             <div class="p-6 text-gray-900">
                                 評価:
