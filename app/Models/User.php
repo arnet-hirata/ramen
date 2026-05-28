@@ -13,6 +13,12 @@ class User extends Authenticatable
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
 
+    public function store(){
+        return $this->belongsToMany(Stores::class)->withPivot('review','comment');
+    }
+
+
+
     /**
      * The attributes that are mass assignable.
      *
