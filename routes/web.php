@@ -6,16 +6,21 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RankingController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PlacesController;
+use App\Http\Controllers\DashboardController; //ダッシュボードコントローラー
+
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+    // return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+
     Route::resource('/ranking', RankingController::class);
     Route::resource('category', CategoryController::class);
     Route::resource('place', PlacesController::class);
