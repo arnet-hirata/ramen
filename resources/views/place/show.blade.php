@@ -1,25 +1,16 @@
-@extends('layouts.app')
+<x-app-layout>
+
 
 @section('content')
 <h1>詳細確認</h1>
 <table class="table table-striped">
-    <thead>
-    <tr>
-        <th>店名</th>
-        <th>ジャンル</th>
-        <th>画像</th>
-        <th>評価</th>
-        <th>コメント</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>{{ $book->book_id }}</td>
-        <td>{{ $book->book_name }}</td>
-        <td>{{ $book->created_at }}</td>
-        <td>{{ $book->created_at }}</td>
-        <td>{{ $book->created_at }}</td>
-    </tr>
-    </tbody>
+
+        <div>店名：</div>
+        <div>地域名：{{ $place->place_name}}</div>
+        <div>ジャンル：</div>
+        <div>画像：</div>
+        <div>評価：</div>
+        <div>コメント：</div>
 </table>
-@endsection
+
+</x-app-layout>
