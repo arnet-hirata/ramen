@@ -27,18 +27,18 @@ Route::middleware('auth')->group(function () {
 
 use App\Models\places; 
 // 選手名と所属チーム名を一覧表示
-Route::get('/place', function(){
+//Route::get('/place', function(){
 
     // playersテーブルのデータをすべて取得
-    $all_places = places::all();
-    foreach($all_places as $place){
-        print("<div>地名：{$place->place_name}</div>");
-        print("<div>店名：");
-            foreach($place->stores as $store) {
-                print("{$store->store_name} / ");
-            }
-        print('</div><br>');
-        }
-})->name('place.index');
+    // $all_places = places::all();
+    // foreach($all_places as $place){
+    //     print("<div>地名：{$place->place_name}</div>");
+    //     print("<div>店名：");
+    //         foreach($place->stores as $store) {
+    //             print("{$store->store_name} / ");
+    //         }
+    //     print('</div><br>');
+    //     }
+// })->name('place.index');
 
 require __DIR__.'/auth.php';
