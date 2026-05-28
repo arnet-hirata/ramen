@@ -14,21 +14,18 @@
                             <div class="p-6 text-gray-900">
                                 お店:{{ $store->store_name }}<br>
                             </div>
-                            {{-- <div class="p-6 text-gray-900">
-                                {{-- 写真 --}}
-                                {{-- {{ $store->store_name }}<br> --}}
-                            {{-- </div> --}}
-                            {{-- <div class="p-6 text-gray-900"> --}}
-                                {{-- 評価: --}}
-                                {{-- @foreach --}}
-{{--  --}}
-                                {{-- @endforeach --}}
-                                {{-- <br> --}}
-                            {{-- </div> --}}
-                            {{-- <div class="p-6 text-gray-900"> --}}
-                                {{-- 場所:{{ $store->store_place }}<br> --}}
-                            {{-- </div> --}} 
-                        
+                            <div class="p-6 text-gray-900">
+                                写真:
+                                {{ $store->store_name }}<br>
+                            </div>
+                            <div class="p-6 text-gray-900">
+                                評価:
+                                {{ $store->avg_score }}<br>
+                            </div>
+                            <div class="p-6 text-gray-900">
+                                場所:{{ $store->store_place }}<br>
+                            </div> 
+                            {{-- <a href="{{ route('store.index') }}">お店の詳細</a> --}}
                     </div>
                 </div>
             @endforeach

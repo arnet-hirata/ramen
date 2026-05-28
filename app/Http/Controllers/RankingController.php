@@ -15,26 +15,19 @@ class RankingController extends Controller
      */
     public function index()
     {
-        //
-        // $counts = DB::table('store_user')
-        //     ->select('store_id', DB::raw('avg(review) as eval'))
-        //     ->groupBy('store_id')
-        //     ->orderBy('eval','desc')
-        //     ->limit(20)
-        //     ->get();
 
-        $stores=Stores::select('id','store_name')
+
+        $stores=Stores::select('id','store_name','store_place')
             ->withAvg(
             'user as avg_score','store_user.review'
             )
             ->orderBy('avg_score','desc')
             ->limit(20)
             ->get();
-
         return view('ranking.index', compact('stores'));
 
         
-        // dd($counts);
+        
         // return view('ranking.index', compact('ranking'));
     }
 
