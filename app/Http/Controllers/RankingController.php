@@ -31,7 +31,7 @@ class RankingController extends Controller
             ->limit(20)
             ->get();
 
-        return $stores;
+        return view('ranking.index', compact('stores'));
 
         
         // dd($counts);
