@@ -19,6 +19,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/ranking', RankingController::class);
     Route::resource('category', CategoryController::class);
     Route::resource('place', PlacesController::class);
+    Route::get('/mypost', [MyPostsController::class, 'edit'])->name('myposts.edit');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
