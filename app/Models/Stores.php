@@ -26,5 +26,5 @@ class Stores extends Model
 
     public function category(){
         return $this->belongsTo(categories::class, 'categories_id');
-}
+    }
 }
