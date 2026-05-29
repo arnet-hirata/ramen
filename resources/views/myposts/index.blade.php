@@ -31,7 +31,7 @@
                             </div> 
                             <div class="p-6 text-gray-900">
                             <a href="/myposts/edit/{{ $store->pivot->id }}">編集</a>
-                            <form action="/mypost/delete/{{ $store->pivot->id }}" method="post">
+                            <form action="/myposts/destroy/{{ $store->pivot->id }}" method="post">
                                 @csrf
                                 @method('Delete')
                                 <input type="submit" name="delete" value="削除">
