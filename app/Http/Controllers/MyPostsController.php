@@ -35,6 +35,12 @@ class MyPostsController extends Controller
     public function store(Request $request)
     {
         //
+        $new_mypost = new Mypost();
+            $new_mypost->review = $request->review;
+            $new_mypost->comment = $request->comment;
+            $new_mypost->save(); // DBに保存
+            // 完了画面を表示
+            return redirect('/mypost');
     }
 
     /**
@@ -67,5 +73,6 @@ class MyPostsController extends Controller
     public function destroy(string $id)
     {
         //
+
     }
 }
