@@ -24,6 +24,11 @@
                             <div class="p-6 text-gray-900">
                                 場所:{{ $store->store_place }}<br>
                             </div> 
+                            <div class="p-6 text-gray-900">
+                                <label>
+                                    <a href="/place/{{ $store->id}}" class="btn btn-primary">詳細</a>
+                                </label>
+                            </div>
                             {{-- <a href="{{ route('store.index') }}">お店の詳細</a> --}}
                     </div>
                 </div>
