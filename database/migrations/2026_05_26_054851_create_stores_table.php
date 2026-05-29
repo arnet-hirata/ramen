@@ -19,6 +19,9 @@ return new class extends Migration
                     ->nullable() 
                     ->constrained('places');
             $table->string('store_image');
+            $table->foreignId('categories_id') 
+                    ->nullable() 
+                    ->constrained('categories');
             $table->timestamps();
         });
     }
