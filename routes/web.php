@@ -8,7 +8,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PlacesController;
 use App\Http\Controllers\MyPostsController;
 use App\Http\Controllers\DashboardController; //ダッシュボードコントローラー
-
+use App\Http\Controllers\StoreController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -30,23 +30,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/place/{id}', [PlacesController::class, 'show'])->name('places.show');
+    Route::get('/store/create', [StoreController::class, 'create'])->name('stores.create');
+    Route::post('/store/confirm', [StoreController::class, 'confirm']);
+    // 完了画面
+// アクセスすると、Viewのcomplete.blade.phpを呼び出す
 
 });
-
-use App\Models\places; 
-// 選手名と所属チーム名を一覧表示
-//Route::get('/place', function(){
-
-    // playersテーブルのデータをすべて取得
-    // $all_places = places::all();
-    // foreach($all_places as $place){
-    //     print("<div>地名：{$place->place_name}</div>");
-    //     print("<div>店名：");
-    //         foreach($place->stores as $store) {
-    //             print("{$store->store_name} / ");
-    //         }
-    //     print('</div><br>');
-    //     }
-// })->name('place.index');
-
 require __DIR__.'/auth.php';

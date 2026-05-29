@@ -49,10 +49,14 @@
                         <x-dropdown-link :href="route('myposts.index')">
                             {{ __('投稿一覧') }}
                         </x-dropdown-link>
+
+                        <x-dropdown-link :href="route('stores.create')">
+                            {{ __('店舗登録') }}
+                        </x-dropdown-link>
+
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
