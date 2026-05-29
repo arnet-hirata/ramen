@@ -21,15 +21,6 @@ class DashboardController extends Controller
 
         return view('dashboard', compact('stores'));
 
-
-                $str=Stores::select('id','store_name','store_place')
-            ->withAvg(
-            'user as avg_score','store_user.review'
-            )
-            ->get();
-        return view('dashboard', compact('str'));
-
-
     }
 
     /**

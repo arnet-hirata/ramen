@@ -28,7 +28,8 @@
                 <tr>
                     <div>
                     {{-- 店舗画像 --}}
-                    <td><a href="/詳細画面URL{{ __($store->id) }}"><img src="{{asset('storage/images/'.$store->store_image) }}"width='500'/>
+                    <td><a href="/詳細画面URL{{ __($store->id) }}">
+                        <img src="{{asset('storage/images/'.$store->store_image) }}"width='500'/>
                     </a></td> 
                     </div>
 
