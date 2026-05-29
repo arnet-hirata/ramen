@@ -1,19 +1,24 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Places;
+use App\Models\Myposts;
 use Illuminate\Http\Request;
-use App\Models\Stores;
+use App\Models\StoreUser;
+use App\Models\User;
 
-class PlacesController extends Controller
+// データベースへのレコード追加のために、DBファサードを利用する
+use Illuminate\Support\Facades\Auth;
+
+class MyPostsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $all_places = places::all();
-        return view('place.index', compact('all_places'));
+        
+        $auths=User::where('id',Auth::id())->get();
+        return view('myposts.index', compact('auths'));
     }
 
     /**
@@ -37,8 +42,7 @@ class PlacesController extends Controller
      */
     public function show(string $id)
     {
-        $store = Stores::find($id);
-        return view('place.show', compact('store'));
+        //
     }
 
     /**

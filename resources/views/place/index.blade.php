@@ -5,7 +5,7 @@
             @foreach($place->stores as $store) 
                 {{"{$store->store_name} / "}}
                 <br>
-                <div><a href="/place/{{ $place->id}}" class="btn btn-primary">詳細</a></div>
+                <div><a href="/place/{{ $store->id}}" class="btn btn-primary">詳細</a></div>
             @endforeach
         <br>
         @endforeach
