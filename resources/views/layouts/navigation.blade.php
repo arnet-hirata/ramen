@@ -44,9 +44,11 @@
 
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
+                            {{ __('プロフィール') }}
                         </x-dropdown-link>
-
+                        <x-dropdown-link :href="route('myposts.index')">
+                            {{ __('投稿一覧') }}
+                        </x-dropdown-link>
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -54,7 +56,7 @@
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Log Out') }}
+                                {{ __('ログアウト') }}
                             </x-dropdown-link>
                         </form>
                     </x-slot>
@@ -78,13 +80,16 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard.index')" :active="request()->routeIs('dashboard.index')">
                 {{ __('Dashboard') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('ranking.index')" :active="request()->routeIs('ranking.index')">
-                カフェ一覧
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('category.index')" :active="request()->routeIs('category.index')">
-                家具一覧
-            </x-responsive-nav-link>
+            </x-nav-link>
+            <x-nav-link :href="route('ranking.index')" :active="request()->routeIs('ranking.index')">
+                ランキング
+            </x-nav-link>
+            <x-nav-link :href="route('category.index')" :active="request()->routeIs('category.index')">
+                カテゴリー
+            </x-nav-link>
+            <x-nav-link :href="route('place.index')" :active="request()->routeIs('place.index')">
+                地域
+            </x-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
