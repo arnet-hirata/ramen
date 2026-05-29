@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 use App\Models\Places;
 use Illuminate\Http\Request;
 use App\Models\Stores;
+use App\Models\StoreUser;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+
 
 class PlacesController extends Controller
 {
@@ -30,6 +34,32 @@ class PlacesController extends Controller
     public function store(Request $request)
     {
         //
+        //dd(auth()->user());
+
+        $request->validate([
+            // commentを 必須、5文字以上
+            'comment' => ['required']
+        ]);
+
+                $request->validate([
+            // reviewを 必須
+            'review' => ['required']
+        ]);
+
+        if ($request->has('send')) {
+
+        //$auths=User::where('id',Auth::id())->get();
+        $storeuser = new StoreUser();
+
+        //$storeuser->user_id = $request->$auths;
+        $storeuser->user_id = Auth::id();
+        $storeuser->store_id = $request->store_id;
+        $storeuser->review = $request->review;
+        $storeuser->comment = $request->comment;
+        $storeuser->save();
+
+        return redirect('/place');
+        }
     }
 
     /**

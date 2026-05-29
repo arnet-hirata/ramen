@@ -11,8 +11,9 @@
             @foreach($auths as $auth)
                 
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-4">
+                    @foreach ($auth->stores as $store)
                     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                        @foreach ($auth->stores as $store)
+                        
                             <div class="p-6 text-gray-900">
                                 店名:
                                     {{ $store->store_name }}<br>
@@ -28,10 +29,20 @@
                                 コメント:<br>
                                 {{ $store->pivot->comment }}
                             </div> 
-                        @endforeach
-                            {{-- <a href="{{ route('myposts.edit') }}">変更</a> --}}
-                            {{-- <a href="{{ route('myposts.delete') }}">削除</a> --}}
+                            <div class="p-6 text-gray-900">
+                            <a href="/myposts/edit/{{ $store->pivot->id }}">編集</a>
+                            <form action="/myposts/destroy/{{ $store->pivot->id }}" method="post">
+                                @csrf
+                                @method('Delete')
+                                <input type="submit" name="delete" value="削除">
+                            </form>
+                            
+                        </div> 
+                        
+                        
+
                     </div>
+                    @endforeach
                 </div>
             @endforeach
         </div>

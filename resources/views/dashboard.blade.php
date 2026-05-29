@@ -6,10 +6,12 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto sm:px-2 lg:px-4">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">                
+                <div class="p-6 text-gray-900">         
+    <div class="text-xl">    
                     {{ __("店名一覧") }}
+    </div>
     </div>
     </div>
     </div>
@@ -28,13 +30,14 @@
                 <tr>
                     <div>
                     {{-- 店舗画像 --}}
-                    <td><a href="/詳細画面URL{{ __($store->id) }}"><img src="{{asset('storage/images/'.$store->store_image) }}"width='500'/>
+                    <td><a href="/place/{{ $store->id}}">
+                        <img src="{{asset('storage/images/'.$store->store_image) }}"width='500'/>
                     </a></td> 
                     </div>
 
                 <div>            
                     {{-- 店名 --}}
-                    <td><a href="/詳細画面URL{{ __($store->id) }}">{{$store->store_name}}</a></td>
+                    <td><a href="/place/{{ $store->id}}">{{$store->store_name}}</a></td>
                 </div>
                 <div>            
                     {{-- 場所 --}}

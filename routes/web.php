@@ -25,7 +25,10 @@ Route::middleware('auth')->group(function () {
     Route::resource('/ranking', RankingController::class);
     Route::resource('category', CategoryController::class);
     Route::resource('place', PlacesController::class);
-    Route::get('/mypost', [MyPostsController::class, 'index'])->name('myposts.index');
+    Route::get('/myposts', [MyPostsController::class, 'index'])->name('myposts.index');
+    Route::get('/myposts/edit/{id}', [MyPostsController::class, 'edit'])->name('myposts.edit');
+    Route::patch('/myposts/update/{id}', [MyPostsController::class, 'update'])->name('myposts.update');
+    Route::delete('/myposts/destroy/{id}', [MyPostsController::class, 'destroy']);
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -34,6 +37,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/store/confirm', [StoreController::class, 'confirm']);
     // 完了画面
 // アクセスすると、Viewのcomplete.blade.phpを呼び出す
+    Route::post('/place', [PlacesController::class, 'store'])->name('places.store');
 
 });
 require __DIR__.'/auth.php';

@@ -5,6 +5,7 @@ use App\Models\Myposts;
 use Illuminate\Http\Request;
 use App\Models\StoreUser;
 use App\Models\User;
+use App\Models\Stores;
 
 // データベースへのレコード追加のために、DBファサードを利用する
 use Illuminate\Support\Facades\Auth;
@@ -35,7 +36,7 @@ class MyPostsController extends Controller
     public function store(Request $request)
     {
         //
-        $new_mypost = new Mypost();
+            $new_mypost = new Myposts();
             $new_mypost->review = $request->review;
             $new_mypost->comment = $request->comment;
             $new_mypost->save(); // DBに保存
@@ -49,6 +50,10 @@ class MyPostsController extends Controller
     public function show(string $id)
     {
         //
+        $mypost = Myposts::find($id);
+
+        // 編集画面に、データを表示する
+        return view('myposts.show', compact('myposts'));
     }
 
     /**
@@ -57,6 +62,11 @@ class MyPostsController extends Controller
     public function edit(string $id)
     {
         //
+        // dd($id);
+        $mypost = StoreUser::find($id);
+        $store=Stores::find($mypost->store_id);
+        // 編集画面に、データを表示する
+        return view('myposts.edit', compact('mypost','store'));
     }
 
     /**
@@ -65,6 +75,12 @@ class MyPostsController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $myposts_to_update = StoreUser::find($id);;
+        $myposts_to_update->review = $request->review;
+        $myposts_to_update->comment = $request->comment;
+        $myposts_to_update->save(); // DBに保存
+        // 完了画面を表示
+        return redirect('/myposts');
     }
 
     /**
@@ -73,6 +89,12 @@ class MyPostsController extends Controller
     public function destroy(string $id)
     {
         //
+        $myposts_to_delete = StoreUser::find($id);
 
+        // 取得したデータの削除を実行する
+        $myposts_to_delete->delete();
+
+        // 一覧画面を表示する
+        return redirect('/myposts');
     }
 }
