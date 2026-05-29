@@ -18,7 +18,7 @@ class User extends Authenticatable
 
         // 中間テーブル(player_positionテーブル)が持っているレコードで関連付けする
         // $this->belongsToMany(<連携先クラス名>::class)
-        return $this->belongsToMany(Stores::class,'store_user','user_id','store_id')->withPivot('review','comment');
+        return $this->belongsToMany(Stores::class,'store_user','user_id','store_id')->withPivot('id','review','comment');
     }
     /**
      * The attributes that are mass assignable.
